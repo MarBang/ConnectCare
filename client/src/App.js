@@ -1,18 +1,44 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useAuth } from './context/AuthContext';
+import Navigation from './components/Navigation';
+import Home from './components/Home';
+import Login from './components/Login';
+import Profile from './components/Profile';
+import HairInpaintUpload from './components/HairInpaintUpload';
+
 
 function App() {
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    fetch('http://localhost:5000/api/hello')
-      .then(res => res.json())
-      .then(data => setMessage(data.message));
-  }, []);
+  const { user } = useAuth();
 
   return (
-    <div>
-      <h1>{message}</h1>
-    </div>
+    <>
+      <Navigation /> {/* Shows on all pages */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route
+          path="/login"
+          element={!user ? <Login /> : <Navigate to="/profile" replace />}
+        />
+
+        <Route
+          path="/profile"
+          element={user ? <Profile /> : <Navigate to="/login" replace />}
+        />
+
+         <Route
+          path="/image"
+          element={user ? <HairInpaintUpload /> : <Navigate to="/login" replace />}
+        />
+
+        {/* Catch-all route */}
+        <Route
+          path="*"
+          element={<Navigate to={user ? "/profile" : "/login"} replace />}
+        />
+      </Routes>
+    </>
   );
 }
 
