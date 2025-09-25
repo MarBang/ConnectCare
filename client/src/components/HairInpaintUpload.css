@@ -1,0 +1,81 @@
+:root {
+  --rp-bg: #eef2ff;
+  --rp-bg-2: #f7f8ff;
+  --rp-card: #ffffff;
+  --rp-text: #2b2e3a;
+  --rp-muted: #657095;
+  --rp-accent: #4b5583;
+  --rp-accent-2: #5c6bc0;
+  --rp-ring: 0 10px 30px rgba(40, 51, 115, 0.15);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: radial-gradient(1200px 600px at 55% 30%, var(--rp-bg), var(--rp-bg-2));
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.rp-card {
+  width: min(720px, 92vw);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 8px;
+  background: linear-gradient(180deg, #fff, #fcfdff);
+  border-radius: 18px;
+  box-shadow: var(--rp-ring);
+  overflow: hidden;
+}
+
+.rp-left { padding: 28px; }
+
+.rp-title {
+  font-size: clamp(18px, 2.4vw, 22px);
+  font-weight: 700;
+  color: var(--rp-text);
+  margin-bottom: 10px;
+}
+
+.rp-subtitle {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--rp-muted);
+  margin-bottom: 14px;
+}
+
+.rp-perks { list-style: none; margin-bottom: 18px; }
+.rp-perk { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--rp-accent); margin-bottom: 6px; }
+.rp-check { width: 16px; height: 16px; }
+
+.rp-btn {
+  background: linear-gradient(180deg, var(--rp-accent-2), #3d4ea6);
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(60, 78, 166, 0.28);
+}
+.rp-btn:hover { filter: brightness(1.05); }
+
+.rp-right {
+  background: radial-gradient(600px 260px at 50% -10%, #e6ebff, #eef2ff 60%, #f7f8ff);
+  display: grid;
+  place-items: end center;
+  padding: 0 16px 8px 0;
+}
+
+.rp-portrait-wrap { filter: drop-shadow(0 14px 22px rgba(68, 82, 160, 0.25)); }
+.rp-portrait { width: min(260px, 40vw); border-radius: 14px; }
+
+@media (max-width: 640px) {
+  .rp-card { grid-template-columns: 1fr; }
+  .rp-right { order: -1; place-items: center; padding-top: 18px; }
+  .rp-portrait { width: min(220px, 70vw); }
+  .rp-left { padding: 18px; }
+}

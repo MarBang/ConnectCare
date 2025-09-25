@@ -1,4 +1,3 @@
-// server.js
 const express = require("express");
 const multer = require("multer");
 const cors = require("cors");
@@ -12,13 +11,13 @@ const app = express();
 app.use(cors());
 const upload = multer({ dest: "uploads/" });
 
-// ✅ Configure Azure OpenAI client
+//Azure OpenAI client
 const client = new OpenAI({
   apiKey: process.env.AZURE_OPENAI_API_KEY,
   baseURL: process.env.AZURE_OPENAI_ENDPOINT, // e.g. "https://<your-resource-name>.openai.azure.com/openai/deployments/<deployment-name>"
 });
 
-// Route: Upload image → Enhance hair → Return enhanced image
+//Route: Upload image → Enhance hair → Return enhanced image
 app.post("/enhance", upload.single("image"), async (req, res) => {
   try {
     const imagePath = req.file.path;
