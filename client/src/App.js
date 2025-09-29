@@ -1,4 +1,3 @@
-/*
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
@@ -14,8 +13,8 @@ function App() {
 
   return (
     <>
-      <Navigation /> {*/
-/* Shows on all pages *//*
+      <Navigation /> {
+/* Shows on all pages */
 }
       <Routes>
         <Route path="/" element={<Home />} />
@@ -35,8 +34,8 @@ function App() {
           element={user ? <HairInpaintUpload /> : <Navigate to="/login" replace />}
         />
 
-        {*/
-/* Catch-all route *//*
+        {
+/* Catch-all route */
 }
         <Route
           path="*"
@@ -44,20 +43,6 @@ function App() {
         />
       </Routes>
     </>
-  );
-}
-
-export default App;*/
-
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import HairInpaintUpload from "./components/HairInpaintUpload";
-
-function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<HairInpaintUpload />} />
-    </Routes>
   );
 }
 
