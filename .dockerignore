@@ -1,0 +1,31 @@
+# Node modules (we install fresh ones in Docker)
+node_modules
+client/node_modules
+server/node_modules
+
+# Local environment files (use Cloud Run env vars instead)
+.env
+client/.env
+server/.env
+
+# Logs
+*.log
+client/*.log
+server/*.log
+
+# React build folder (will be rebuilt in Docker)
+client/build
+
+# Git
+.git
+.gitignore
+
+# OS/IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.swp
