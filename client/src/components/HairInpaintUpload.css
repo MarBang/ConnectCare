@@ -53,9 +53,9 @@ body {
 }
 
 .img-btn img:hover {
-  box-shadow: 0 8px 20px rgba(61, 78, 166, 0.4); /* subtle shadow on hover */
-  transform: scale(1.03); /* optional: slight zoom */
-  border-radius: 10px; /* slightly rounder corners */
+  box-shadow: 0 8px 20px rgba(61, 78, 166, 0.4);
+  transform: scale(1.03);
+  border-radius: 10px;
 }
 
 .btn {

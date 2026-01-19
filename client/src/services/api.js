@@ -21,12 +21,3 @@ export const handleInpaint = async (imageFile) => {
     throw err;
   }
 };
-
-export const login = async (email, password) => {
-  try {
-    const response = await axios.post("http://localhost:4000/login", { email, password });
-    return response.data; // { id, email, name }
-  } catch (error) {
-    throw error.response ? error.response.data : error;
-  }
-};

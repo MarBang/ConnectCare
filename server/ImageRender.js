@@ -10,13 +10,11 @@ app.use(cors());
 // Memory-only file uploads
 const upload = multer({ storage: multer.memoryStorage() });
 
-// Serve React frontend
 app.use(express.static(path.join(__dirname, "public")));
 
-// Gemini API client
+// Gemini API
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
-// /enhance endpoint
 app.post("/enhance", upload.single("image"), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ error: "No file uploaded" });
