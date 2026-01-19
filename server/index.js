@@ -7,9 +7,7 @@ const PORT = 4000;
 app.use(cors());
 app.use(express.json());
 
-const users = [
-  { id: 1, email: 'user@example.com', password: 'password123', name: 'John Doe' },
-  { id: 2, email: 'alice@example.com', password: 'alice123', name: 'Alice Smith' },
+const users = [//This will be removed
 ];
 
 // Login route
